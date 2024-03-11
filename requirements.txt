@@ -1,0 +1,9 @@
+asgiref
+Django
+django-cors-headers
+django-crispy-forms
+djangorestframework
+Pillow
+pytz
+sqlparse
+tzdata

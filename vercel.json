@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "manage.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "2048",
+        "runtime": "python3.6",
+        "buildCommand": "sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt-get update && sudo apt-get install python3.6 && python3.6 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python manage.py collectstatic --noinput"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/manage.py"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "sqlite:///./db.sqlite3"
+  }
+}
